@@ -1,0 +1,25 @@
+Target example:
+
+[Unit]
+Description=Foobar boot target
+Requires=graphical.target
+Wants=mining-start.service
+Conflicts=rescue.service rescue.target
+After=graphical.target rescue.service rescue.target
+AllowIsolate=yes
+
+
+Service example 
+
+[Unit]
+Description=Start the minning process
+
+[Service]
+Type=simple
+ExecStart=/home/artem/MiningHome/start.sh
+Environment="DISPLAY=:0"
+Environment="XAUTHORITY=/run/user/1000/gdm/Xauthority"
+
+[Install]
+WantedBy=mining.target
+

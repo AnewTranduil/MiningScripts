@@ -1,0 +1,12 @@
+[Unit]
+Description=Custom Startup
+After=nvidia-persistent
+
+[Service]
+ExecStart=/home/artem/MiningHome/start.sh
+Environment="DISPLAY=:0"
+Environment="XAUTHORITY=/run/user/1000/gdm/Xauthority"
+
+[Install]
+WantedBy=multi-user.target
+
